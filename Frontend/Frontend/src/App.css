@@ -1,0 +1,538 @@
+
+/* =========================
+   1. Global Styles
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #26352b;
+  background: #faf8f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #faf8f2;
+  color: #26352b;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #8cbd96;
+  outline-offset: 2px;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* =========================
+   2. Navigation Bar
+========================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 7%;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e5dc;
+}
+
+.navbar h1 {
+  margin: 0;
+  color: #287747;
+  font-size: 28px;
+}
+
+.navbar span {
+  color: #68736b;
+  font-size: 14px;
+}
+
+/* =========================
+   3. Main Container
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+/* =========================
+   4. Hero Section
+========================= */
+
+.hero {
+  padding: 45px 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #e6f0e3, #f2f5e9);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #287747;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h2 {
+  margin: 12px 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.2;
+}
+
+.hero > p:last-child {
+  max-width: 600px;
+  color: #56665a;
+  line-height: 1.7;
+}
+
+/* =========================
+   5. Add Recipe Form
+========================= */
+
+.form-section {
+  margin-top: 32px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #ebe8df;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px #26352b08;
+}
+
+.form-section h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.form-section > p {
+  margin: 0;
+  color: #68736b;
+  line-height: 1.6;
+}
+
+.recipe-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #34483a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #d8ddd5;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #26352b;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #929b93;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #287747;
+  box-shadow: 0 0 0 3px #28774718;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Save Button */
+
+.submit-button {
+  width: fit-content;
+  max-width: 100%;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #287747;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #1f6038;
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Success and Error Messages */
+
+.success,
+.error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.success {
+  color: #21663a;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+}
+
+.error {
+  color: #b42318;
+  background: #fff0ef;
+  border: 1px solid #f5c5c1;
+}
+
+/* =========================
+   6. Recipe Section Heading
+========================= */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 36px 0 20px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+  color: #68736b;
+  font-size: 14px;
+}
+
+/* =========================
+   7. Search and Filters
+========================= */
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #ebe8df;
+  border-radius: 14px;
+}
+
+.filter-section > input[type="text"],
+.filter-section > select {
+  min-width: 150px;
+  padding: 12px;
+  border: 1px solid #d8ddd5;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #26352b;
+  font-size: 14px;
+}
+
+.filter-section > input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-section > input:focus,
+.filter-section > select:focus {
+  outline: none;
+  border-color: #287747;
+  box-shadow: 0 0 0 3px #28774718;
+}
+
+.quick-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #34483a;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.quick-filter input {
+  width: 17px;
+  height: 17px;
+  accent-color: #287747;
+  cursor: pointer;
+}
+
+.filter-section > button {
+  padding: 12px 16px;
+  border: 1px solid #287747;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #287747;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-section > button:hover {
+  background: #287747;
+  color: #ffffff;
+}
+
+/* =========================
+   8. Recipe Cards Grid
+========================= */
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.recipe-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #ebe8df;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px #26352b0a;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px #26352b12;
+}
+
+.recipe-image {
+  display: grid;
+  place-items: center;
+  height: 145px;
+  background: #f0eadc;
+  font-size: 60px;
+}
+
+.recipe-content {
+  padding: 18px;
+  overflow-wrap: anywhere;
+}
+
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #68736b;
+  font-size: 13px;
+}
+
+.veg {
+  color: #287747;
+  font-weight: bold;
+}
+
+.nonveg {
+  color: #b33c32;
+  font-weight: bold;
+}
+
+.recipe-content h3 {
+  margin: 16px 0 10px;
+  color: #26352b;
+  font-size: 20px;
+  overflow-wrap: anywhere;
+}
+
+.recipe-content > p {
+  color: #68736b;
+  line-height: 1.6;
+}
+
+.recipe-content details {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.recipe-content summary {
+  color: #287747;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.recipe-content details h4 {
+  margin-bottom: 6px;
+}
+
+.recipe-content details p {
+  margin-top: 0;
+  color: #56665a;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   9. Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 18px 5%;
+  }
+
+  .container {
+    padding: 24px 18px 36px;
+  }
+
+  .hero {
+    padding: 32px 24px;
+  }
+
+  .form-section {
+    padding: 24px;
+  }
+
+  .filter-section > input[type="text"] {
+    min-width: 180px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navbar h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    padding: 20px 14px 32px;
+  }
+
+  .hero {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .form-section {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .form-section h2 {
+    font-size: 21px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filter-section {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .filter-section > input[type="text"],
+  .filter-section > select,
+  .filter-section > button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .quick-filter {
+    padding: 6px 0;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .recipe-image {
+    height: 130px;
+  }
+}
